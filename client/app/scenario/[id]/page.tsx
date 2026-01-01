@@ -6,6 +6,7 @@ import { fetchScenario, submitDecision } from '@/lib/api';
 import { Scenario, FrameworkAnalysis } from '@/lib/types';
 import DecisionTree from '@/components/scenario/decision-tree';
 import NeuralBackground from '@/components/neural-background';
+import { BiExit } from 'react-icons/bi';
 
 export default function ScenarioPage() {
   const params = useParams();
@@ -111,24 +112,12 @@ export default function ScenarioPage() {
       <div className='relative z-10'>
         {/* Compact Header */}
         <header className='border-b border-cyan-500/10 backdrop-blur-sm bg-black/50'>
-          <div className='max-w-7xl mx-auto px-8 py-4 flex items-center justify-between'>
+          <div className='max-w-7xl p-4 flex mx-auto items-center justify-between'>
             <button
               onClick={() => router.push('/')}
               className='flex items-center gap-2 text-gray-500 hover:text-gray-300 transition-colors text-sm'
             >
-              <svg
-                className='w-4 h-4'
-                fill='none'
-                stroke='currentColor'
-                viewBox='0 0 24 24'
-              >
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  strokeWidth={2}
-                  d='M10 19l-7-7m0 0l7-7m-7 7h18'
-                />
-              </svg>
+              <BiExit />
               Exit
             </button>
 
@@ -147,7 +136,7 @@ export default function ScenarioPage() {
         </header>
 
         {/* Decision Tree Visualization */}
-        <div className='py-12 px-8'>
+        <div className='p-5'>
           <DecisionTree
             scenario={scenario}
             currentStep={currentStep}

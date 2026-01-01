@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { fetchScenarios } from '@/lib/api';
 import NeuralBackground from '@/components/neural-background';
 import ScenarioNode from '@/components/scenario-node';
+import { FcMindMap } from 'react-icons/fc';
 
 export default async function Home() {
   const scenarios = await fetchScenarios();
@@ -12,47 +13,49 @@ export default async function Home() {
       <NeuralBackground />
 
       {/* Content */}
-      <div className='relative z-10 px-8 py-12'>
+      <div className='relative z-10 p-5'>
         {/* Compact Header */}
-        <header className='max-w-7xl mx-auto mb-16 flex items-center justify-between'>
+        <header className='max-w-7xl mx-auto mb-12 sm:mb-16 flex items-center justify-between'>
           {/* Logo/Title - Left */}
-          <div className='flex items-center gap-3'>
-            <div className='w-6 h-6 rounded-full bg-linear-to-r from-cyan-500 to-purple-500'></div>
-            <h1 className='text-xl font-extralight tracking-widest text-gray-300'>
-              DILEMMA TREE
+          <div className='flex items-center gap-2 sm:gap-3'>
+            <FcMindMap size={50} />
+            <h1 className='text-base sm:text-xl font-extralight tracking-widest text-gray-300'>
+              DILEMMA DT
             </h1>
           </div>
 
           {/* Generate Button - Right */}
           <Link
             href='/generate'
-            className='px-5 py-2 border border-cyan-500/30 rounded-full text-sm font-light hover:border-cyan-500/60 hover:bg-cyan-500/5 transition-all'
+            className='px-3 sm:px-5 py-1.5 sm:py-2 border border-cyan-500/30 rounded-full text-xs sm:text-sm font-light hover:border-cyan-500/60 hover:bg-cyan-500/5 transition-all'
           >
-            + New Pathway
+            <span className='hidden sm:inline'>+ New Pathway</span>
+            <span className='sm:hidden'>+ New</span>
           </Link>
         </header>
 
         {/* Main Content Area */}
         <div className='max-w-7xl mx-auto'>
           {/* Subtitle - Minimal */}
-          <div className='text-center mb-12'>
-            <p className='text-sm text-gray-500 font-light tracking-wide'>
-              {scenarios.length} Active Neural Pathways
+          <div className='text-center mb-8 sm:mb-12'>
+            <p className='text-xs sm:text-sm text-gray-500 font-light tracking-wide'>
+              {scenarios.length} Active Neural Pathway
+              {scenarios.length !== 1 ? 's' : ''}
             </p>
           </div>
 
           {scenarios.length === 0 ? (
             /* Empty State - Centered */
-            <div className='flex flex-col items-center justify-center min-h-[60vh]'>
-              <div className='w-20 h-20 mb-6 rounded-full border border-dashed border-cyan-500/20 flex items-center justify-center'>
-                <div className='w-3 h-3 rounded-full bg-cyan-500/50'></div>
+            <div className='flex flex-col items-center justify-center min-h-[50vh] sm:min-h-[60vh]'>
+              <div className='w-16 h-16 sm:w-20 sm:h-20 mb-4 sm:mb-6 rounded-full border border-dashed border-cyan-500/20 flex items-center justify-center'>
+                <div className='w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-cyan-500/50'></div>
               </div>
-              <p className='text-gray-600 text-sm mb-6 font-light'>
+              <p className='text-gray-600 text-xs sm:text-sm mb-4 sm:mb-6 font-light'>
                 No pathways initialized
               </p>
               <Link
                 href='/generate'
-                className='px-6 py-2.5 border border-cyan-500/40 rounded-full text-sm hover:bg-cyan-500/10 transition-colors font-light'
+                className='px-5 sm:px-6 py-2 sm:py-2.5 border border-cyan-500/40 rounded-full text-xs sm:text-sm hover:bg-cyan-500/10 transition-colors font-light'
               >
                 Initialize First Node
               </Link>
@@ -60,9 +63,9 @@ export default async function Home() {
           ) : (
             /* Node Network Layout */
             <div className='relative'>
-              {/* Connection lines (SVG) */}
+              {/* Connection lines (SVG) - Hidden on mobile for cleaner look */}
               <svg
-                className='absolute inset-0 w-full h-full pointer-events-none'
+                className='absolute inset-0 w-full h-full pointer-events-none hidden md:block'
                 style={{ zIndex: 0 }}
               >
                 <defs>
@@ -109,16 +112,8 @@ export default async function Home() {
                 })}
               </svg>
 
-              {/* Scenario Nodes Grid */}
-              <div
-                className='grid gap-10 md:gap-14 relative'
-                style={{
-                  gridTemplateColumns: `repeat(${Math.min(
-                    scenarios.length,
-                    4
-                  )}, 1fr)`,
-                }}
-              >
+              {/* Scenario Nodes Grid - Fully Responsive */}
+              <div className='grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 sm:gap-10 md:gap-14 relative'>
                 {scenarios.map((scenario, index) => (
                   <ScenarioNode
                     key={scenario.id}

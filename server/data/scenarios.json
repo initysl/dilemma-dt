@@ -15,7 +15,7 @@
           "choices": [
             {
               "id": "A",
-              "text": "Tell Tom immediately so he can prepare"
+              "text": "Tell Sarah immediately so he can prepare"
             },
             {
               "id": "B",
@@ -444,6 +444,343 @@
           "trigger_step": 4,
           "appears_at_step": 5,
           "consequence_template": "Choosing not to buy a gun has led to a sense of relief, but you're also aware that you may need to find alternative methods for self-defense and consider the potential consequences of that choice."
+        }
+      ],
+      "estimated_time": 8
+    },
+    {
+      "id": "gen_e74539ed0984",
+      "title": "Hit-and-Run Dilemma",
+      "description": "Witnessing a hit-and-run by a colleague",
+      "category": "business",
+      "difficulty": "advanced",
+      "decision_points": [
+        {
+          "step": 1,
+          "context": "You're driving home from work when you witness a hit-and-run accident involving a car you recognize as belonging to your colleague, Alex. The victim appears to be seriously injured. You're shocked and unsure of what to do. You've worked with Alex for years and consider them a friend. You also know that Alex is up for a major promotion at work and this could jeopardize their career.",
+          "prompt": "What do you do immediately after witnessing the accident?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Call the police and report the accident"
+            },
+            {
+              "id": "B",
+              "text": "Try to help the victim and then decide what to do about Alex"
+            },
+            {
+              "id": "C",
+              "text": "Leave the scene and talk to Alex about what you saw before deciding on further action"
+            },
+            {
+              "id": "D",
+              "text": "Call Alex and ask them what happened before making any decisions"
+            }
+          ]
+        },
+        {
+          "step": 2,
+          "context": "Depending on your initial action, you're now faced with the repercussions of your choice. If you reported the accident, the police are investigating. If you helped the victim, they are receiving medical attention. You're at work the next day, and the atmosphere is tense. Your colleagues are discussing the accident, and some are speculating about who might have been involved. Alex is acting nervously and avoids eye contact with you.",
+          "prompt": "How do you handle the situation at work?",
+          "choices": [
+            {
+              "id": "E",
+              "text": "Confront Alex about your suspicions"
+            },
+            {
+              "id": "F",
+              "text": "Try to act normal and avoid discussing the accident"
+            },
+            {
+              "id": "G",
+              "text": "Talk to your supervisor about your concerns and the potential impact on the company"
+            },
+            {
+              "id": "H",
+              "text": "Support Alex publicly, hoping to reduce speculation"
+            }
+          ]
+        },
+        {
+          "step": 3,
+          "context": "The investigation into the accident is ongoing, and the company is facing potential legal and reputational consequences. If Alex was involved, their career and personal life could be severely impacted. You're considering the long-term effects of your decisions and how they will reflect on you and the company. The media might become involved, further complicating the situation.",
+          "prompt": "What is your long-term strategy for handling the situation?",
+          "choices": [
+            {
+              "id": "I",
+              "text": "Cooperate fully with the investigation and let the legal process unfold"
+            },
+            {
+              "id": "J",
+              "text": "Work with the company to manage the public relations aspect of the incident"
+            },
+            {
+              "id": "K",
+              "text": "Focus on supporting the victim and their family through the recovery process"
+            },
+            {
+              "id": "L",
+              "text": "Protect Alex and the company's interests by limiting the information you share"
+            }
+          ]
+        }
+      ],
+      "consequence_rules": [
+        {
+          "trigger_choice": "A",
+          "trigger_step": 1,
+          "appears_at_step": 3,
+          "consequence_template": "Your report led to an investigation, but your relationship with Alex and some colleagues is strained due to your decision."
+        },
+        {
+          "trigger_choice": "C",
+          "trigger_step": 1,
+          "appears_at_step": 3,
+          "consequence_template": "By initially choosing not to report the accident immediately, you're now facing internal conflict and potential legal implications for withholding information."
+        }
+      ],
+      "estimated_time": 8
+    },
+    {
+      "id": "gen_1df5ec2e4bb3",
+      "title": "Hit and Run Dilemma",
+      "description": "Witnessing a hit-and-run by someone you know",
+      "category": "personal",
+      "difficulty": "advanced",
+      "decision_points": [
+        {
+          "step": 1,
+          "context": "You are walking home from work when you witness a car accident. As you rush to help, you realize the driver is a close friend who quickly flees the scene. The victim is injured but stable. Your friend is panicked and asks for your help, saying their career will be over if they are caught.",
+          "prompt": "What do you do?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Help your friend leave the scene"
+            },
+            {
+              "id": "B",
+              "text": "Refuse to help your friend and call the police"
+            },
+            {
+              "id": "C",
+              "text": "Try to convince your friend to turn themselves in"
+            },
+            {
+              "id": "D",
+              "text": "Offer to drive your friend home but insist they report the incident later"
+            }
+          ]
+        },
+        {
+          "step": 2,
+          "context": "The next day, you are approached by the victim's family, asking if you saw anything. They are desperate for information and seem genuinely concerned about the victim's well-being. Your friend has been avoiding you, and you're unsure what to do.",
+          "prompt": "How do you respond to the victim's family?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Tell them you didn't see anything"
+            },
+            {
+              "id": "B",
+              "text": "Share what you know without revealing your friend's identity"
+            },
+            {
+              "id": "C",
+              "text": "Encourage them to speak with the police"
+            },
+            {
+              "id": "D",
+              "text": "Offer to help them find the perpetrator in other ways"
+            }
+          ]
+        },
+        {
+          "step": 3,
+          "context": "The police start investigating the hit-and-run, and your friend reaches out, asking you to provide an alibi. You're torn between loyalty to your friend and the need for justice. The investigation is gaining media attention, and the community is outraged.",
+          "prompt": "What do you do about the alibi?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Agree to provide a false alibi"
+            },
+            {
+              "id": "B",
+              "text": "Refuse to provide an alibi and encourage your friend to cooperate with the police"
+            },
+            {
+              "id": "C",
+              "text": "Tell your friend you need time to think about it"
+            },
+            {
+              "id": "D",
+              "text": "Suggest your friend hire a lawyer"
+            }
+          ]
+        },
+        {
+          "step": 4,
+          "context": "The investigation leads to a suspect who matches your friend's description, but the evidence is largely circumstantial. The police ask to question you as a potential witness. Your friend is frantic, believing their life is about to be ruined.",
+          "prompt": "How do you handle the police questioning?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Fully cooperate with the police and share what you know"
+            },
+            {
+              "id": "B",
+              "text": "Downplay your involvement and withhold details"
+            },
+            {
+              "id": "C",
+              "text": "Ask for a lawyer before answering questions"
+            },
+            {
+              "id": "D",
+              "text": "Tell the police you're not comfortable discussing the incident"
+            }
+          ]
+        },
+        {
+          "step": 5,
+          "context": "The case against your friend is building, and the community is calling for harsh punishment. You're faced with the moral implications of your actions and the potential consequences for your friend and the victim's family. You must decide how to proceed, considering both justice and personal relationships.",
+          "prompt": "What do you ultimately decide to do?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Testify against your friend if the case goes to trial"
+            },
+            {
+              "id": "B",
+              "text": "Continue to support your friend and argue for leniency"
+            },
+            {
+              "id": "C",
+              "text": "Seek counseling to deal with the moral conflict"
+            },
+            {
+              "id": "D",
+              "text": "Distance yourself from both your friend and the victim's family"
+            }
+          ]
+        }
+      ],
+      "consequence_rules": [
+        {
+          "trigger_choice": "A",
+          "trigger_step": 1,
+          "appears_at_step": 3,
+          "consequence_template": "Your decision to help your friend has led to feelings of guilt and anxiety, affecting your relationships at work."
+        },
+        {
+          "trigger_choice": "B",
+          "trigger_step": 2,
+          "appears_at_step": 4,
+          "consequence_template": "The victim's family has found out about your involvement and is now questioning your motives, making the situation more complicated."
+        },
+        {
+          "trigger_choice": "C",
+          "trigger_step": 3,
+          "appears_at_step": 5,
+          "consequence_template": "Your friend's decision to cooperate with the police, influenced by your encouragement, has led to a more favorable outcome, but the process has been emotionally draining for everyone involved."
+        },
+        {
+          "trigger_choice": "D",
+          "trigger_step": 4,
+          "appears_at_step": 5,
+          "consequence_template": "The police's suspicion of your involvement has put a strain on your professional and personal life, as people begin to question your integrity."
+        }
+      ],
+      "estimated_time": 8
+    },
+    {
+      "id": "gen_2c11209dc937",
+      "title": "Financial Disclosure",
+      "description": "Navigate a morally complex financial situation",
+      "category": "business",
+      "difficulty": "intermediate",
+      "decision_points": [
+        {
+          "step": 1,
+          "context": "You're the CFO of a small startup. During an audit, you discover that one of your employees has been misrepresenting company expenses to receive larger reimbursements. The total amount is significant, but the employee is a key member of your team and has been with the company since its inception. The employee is also a single parent and the primary breadwinner for their family.",
+          "prompt": "What do you do about the misrepresentation?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Confront the employee directly and demand repayment"
+            },
+            {
+              "id": "B",
+              "text": "Report the issue to the CEO and let them handle it"
+            },
+            {
+              "id": "C",
+              "text": "Ignore the issue, as it may not be worth the potential consequences for the company and the employee's family"
+            },
+            {
+              "id": "D",
+              "text": "Launch a company-wide audit to see if this is an isolated incident"
+            }
+          ]
+        },
+        {
+          "step": 2,
+          "context": "After dealing with the initial issue, you're faced with a new decision. The company is preparing for a major funding round, and the investors are asking for detailed financial reports. You must decide how to present the company's financial situation, knowing that the misrepresentation could impact the funding.",
+          "prompt": "How do you handle the financial reporting for the funding round?",
+          "choices": [
+            {
+              "id": "E",
+              "text": "Disclose the misrepresentation and its impact on the company's finances"
+            },
+            {
+              "id": "F",
+              "text": "Omit the details of the misrepresentation, focusing on the company's overall financial health"
+            },
+            {
+              "id": "G",
+              "text": "Attribute the discrepancy to an accounting error, rather than employee misconduct"
+            },
+            {
+              "id": "H",
+              "text": "Delay the funding round until the issue is fully resolved"
+            }
+          ]
+        },
+        {
+          "step": 3,
+          "context": "The funding round is successful, but the company's financial situation is still precarious. You must decide how to allocate the new funds, considering the need to address the misrepresentation and ensure the company's future stability.",
+          "prompt": "How do you allocate the funds from the successful funding round?",
+          "choices": [
+            {
+              "id": "I",
+              "text": "Use a portion of the funds to repay the misappropriated amount and strengthen internal controls"
+            },
+            {
+              "id": "J",
+              "text": "Invest the funds in growth initiatives, hoping to increase revenue and offset the losses"
+            },
+            {
+              "id": "K",
+              "text": "Set aside funds for potential legal fees and audits, anticipating future risks"
+            },
+            {
+              "id": "L",
+              "text": "Distribute bonuses to employees, including the one involved in the misrepresentation, to boost morale"
+            }
+          ]
+        }
+      ],
+      "consequence_rules": [
+        {
+          "trigger_choice": "A",
+          "trigger_step": 1,
+          "appears_at_step": 3,
+          "consequence_template": "The employee who was confronted has become withdrawn and less productive, affecting team morale and potentially impacting future funding rounds"
+        },
+        {
+          "trigger_choice": "F",
+          "trigger_step": 2,
+          "appears_at_step": 3,
+          "consequence_template": "The investors have begun to scrutinize the company's financial reports more closely, and there are rumors of a potential audit that could uncover the omitted details of the misrepresentation"
         }
       ],
       "estimated_time": 8

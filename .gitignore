@@ -43,7 +43,7 @@ client/next-env.d.ts
 
 # Python
 server/.venv
-server/__pycache__/
+server/**/__pycache__/
 server/*.py[cod]
 server/*$py.class
 server/*.so
